@@ -12,5 +12,9 @@ public class App {
 
         System.out.println(r1.area());
         System.out.println(r2.perimetro());
+
+        System.out.println("-------------------------------");
+
+        System.out.println(r2.getLado(2));
     }
 }

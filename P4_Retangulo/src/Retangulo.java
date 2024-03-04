@@ -16,6 +16,9 @@ public class Retangulo {
     }
 
     public double getLado(int n) {
+        if (n < 1 || n > 2 || lado2 == 0) {
+            throw new IllegalArgumentException("Lado inválido");
+        }
         if (n == 1) {
             return lado1;
         } else {
@@ -34,12 +37,13 @@ public class Retangulo {
     public double perimetro() {
         if (lado2 == 0) {
             return 4 * lado1;
-        }
-        return 2 * (lado1 + lado2);
+        } else {
+            return 2 * (lado1 + lado2);
+        }   
     }
 
     @Override
     public String toString() {
-        return "Retângulo [Lado 1=" + lado1 + ", Lado 2=" + lado2 + "]";
+        return "Retângulo [Lado 1=" + lado1 + ", Lado2=" + lado2 + "]";
     }
 }
