@@ -40,6 +40,6 @@ public class Retangulo {
 
     @Override
     public String toString() {
-        return "Retangulo [lado1=" + lado1 + ", lado2=" + lado2 + "]";
+        return "Retângulo [Lado 1=" + lado1 + ", Lado 2=" + lado2 + "]";
     }
 }
