@@ -23,9 +23,9 @@ public class CadastroProfessores {
         return Arrays.copyOf(professores, proxLivre);
     }
 
-    public Professor getPorNome(String nome){
-        for(int i=0;i<proxLivre;i++){
-            if (professores[i].getNome().equals(nome)){
+    public Professor getPorNome(String nome) {
+        for(int i = 0; i < proxLivre; i++){
+            if (professores[i].getNome().equals(nome)) {
                 return professores[i];
             }
         }
