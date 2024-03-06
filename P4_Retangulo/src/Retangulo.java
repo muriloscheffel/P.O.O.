@@ -1,6 +1,5 @@
 public class Retangulo {
-    private final double lado1;
-    private final double lado2;
+    private final double lado1, lado2;
 
     public Retangulo(double lado1, double lado2) {
         if (lado1 <= 0 || lado2 <= 0) {
@@ -36,19 +35,11 @@ public class Retangulo {
     }
 
     public double area() {
-        if (lado2 == 0) {
-            return lado1 * lado1;
-        } else { 
-            return lado1 * lado2;
-        }
+        return lado1 * lado2;
     }
 
     public double perimetro() {
-        if (lado2 == 0) {
-            return 4 * lado1;
-        } else {
-            return 2 * (lado1 + lado2);
-        }   
+        return 2 * (lado1 + lado2);  
     }
 
     @Override
