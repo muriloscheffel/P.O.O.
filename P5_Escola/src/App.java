@@ -10,13 +10,14 @@ public class App {
             System.out.println(a.getNota(i));
         }
         System.out.println("Media: "+a.media());
-        if (a.aprovado()){
+        if(a.aprovado()) {
             System.out.println("Aprovado!");
-        }else{
+        }else {
             System.out.println("Reprovado.");
         }
         Turma t = new Turma(10,"Pato Donald",10);
         t.novoAluno(a);
         t.novoAluno(new Aluno(1022,"Luizinho Pato"));
+
     }
 }
