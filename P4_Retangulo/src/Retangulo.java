@@ -1,18 +1,27 @@
 public class Retangulo {
-    private double lado1;
-    private double lado2;
+    private final double lado1;
+    private final double lado2;
 
     public Retangulo(double lado1, double lado2) {
+        if (lado1 <= 0 || lado2 <= 0) {
+            throw new IllegalArgumentException("Lado inválido");
+        }
+
         this.lado1 = lado1;
         this.lado2 = lado2;
     }
 
     public Retangulo(double lado1) {
+        if (lado1 <= 0) {
+            throw new IllegalArgumentException("Lado inválido");
+        }
         this.lado1 = lado1;
+        this.lado2 = lado1;
     }
 
     public Retangulo() {
         lado1 = 1;
+        lado2 = 1;
     }
 
     public double getLado(int n) {
