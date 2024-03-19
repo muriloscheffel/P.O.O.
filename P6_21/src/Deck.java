@@ -43,4 +43,8 @@ public class Deck {
             cartas[j] = temp;
         }
     }
+
+    public void reset() {
+        
+    }
 }
