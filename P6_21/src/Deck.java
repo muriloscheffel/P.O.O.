@@ -1,7 +1,10 @@
+import java.util.Random;
+
 public class Deck {
     public static final int MAX_CARTAS = 104;
     private Carta[] cartas;
     private int proxLivre;
+    private int cursor;
 
     public Deck() {
         cartas = new Carta[MAX_CARTAS];
@@ -9,18 +12,31 @@ public class Deck {
     }
 
     public void insereEmCima(Carta carta) {
-        if (proxLivre < MAX_CARTAS) {
-            cartas[proxLivre] = carta;
-            proxLivre++;
+        if (proxLivre >= MAX_CARTAS) {
+            throw new RuntimeException("Deck cheio");
         }
+        cartas[proxLivre] = carta;
+        proxLivre++;
+    }
+
+    public Carta retiraDeCima() {
+        if (proxLivre == 0) {
+            throw new RuntimeException("Deck vazio");
+        }
+        proxLivre--;
+        return cartas[proxLivre];
     }
 
     public Carta retiraDeBaixo() {
-        if (proxLivre > 0) {
-            proxLivre--;
-            return cartas[proxLivre];
+        if(proxLivre == 0) {
+            throw new RuntimeException("Deck vazio");
         }
-        return null;
+        Carta aux = cartas[0];
+        for(int i = 0; i < proxLivre - 1; i++) {
+            cartas[i] = cartas[i + 1];
+        }
+        proxLivre--;
+        return aux;
     }
 
     public int qtdadeCartas() {
@@ -36,15 +52,27 @@ public class Deck {
     }
 
     public void embaralha() {
-        for (int i = 0; i < proxLivre; i++) {
-            int j = (int) (Math.random() * proxLivre);
-            Carta temp = cartas[i];
-            cartas[i] = cartas[j];
-            cartas[j] = temp;
+        Random r = new Random();
+        for (int i = 0; i < 2000; i++) {
+            int p1 = r.nextInt(52);
+            int p2 = r.nextInt(52);
+            Carta aux = cartas[p1];
+            cartas[p1] = cartas[p2];
+            cartas[p2] = aux;
         }
     }
 
     public void reset() {
-        
+        cursor = 0;
+    }
+
+    public Carta next(){
+        if(cursor == proxLivre) {
+            return null;
+        } else {
+            Carta aux = cartas[cursor];
+            cursor++;
+            return aux;
+        }
     }
 }
