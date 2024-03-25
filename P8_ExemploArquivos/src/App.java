@@ -1,5 +1,5 @@
-public class App{
-    public static void main(String[] args){
+public class App {
+    public static void main(String[] args) {
         CadastroProdutos cp = new CadastroProdutos();
         System.out.println("Lendo arquivo");
         cp.carregaProdutos();

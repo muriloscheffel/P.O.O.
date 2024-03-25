@@ -20,11 +20,11 @@ public class DemoLeArquivo {
          // Usa a classe scanner para fazer a leitura do arquivo
          try (Scanner sc = new Scanner(Files.newBufferedReader(path, StandardCharsets.UTF_8))){
             linha = sc.nextLine();
-         }catch (IOException x){
+         }catch (IOException x) {
              System.err.format("Erro de E/S: %s%n", x);
          }
          String[] numeros = linha.split(",");
-         for(int i=0;i<numeros.length;i++){
+         for(int i = 0; i < numeros.length; i++){
              acum += Integer.parseInt(numeros[i]);
          }
          media = acum/numeros.length;

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.PrintWriter;
 
-public class CadastroProdutos{
+public class CadastroProdutos {
     //private static final int MAXPROD = 1000;
     private ArrayList<Produto> produtos;
     private int contProd;
@@ -23,7 +23,7 @@ public class CadastroProdutos{
         String nameComplete = currDir + "/" + fName;
         Path path = Paths.get(nameComplete);
         try (Scanner sc = new Scanner(Files.newBufferedReader(path, StandardCharsets.UTF_8))){
-           while (sc.hasNext()){
+           while (sc.hasNext()) {
                String linha = sc.nextLine();
                //System.out.println(linha);
                String dados[] = linha.split(";");
@@ -40,29 +40,29 @@ public class CadastroProdutos{
                produtos.add(p);
                contProd++;
            }
-        }catch (IOException x){
+        }catch (IOException x) {
             System.err.format("Erro de E/S: %s%n", x);
         }
     }
 
-    public void gravaProdutos(){
+    public void gravaProdutos() {
         String currDir = Paths.get("").toAbsolutePath().toString();
-        String nameComplete = currDir+"\\"+fName;
+        String nameComplete = currDir + "/" + fName;
         Path path = Paths.get(nameComplete);
         try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(path, StandardCharsets.UTF_8))){
-          for(int i=0;i<produtos.size();i++){
+          for(int i=0;i<produtos.size();i++) {
                 String linha = produtos.get(i).getCodigo()+";"+
                                produtos.get(i).getDescricao()+";"+
                                produtos.get(i).getPrecoUnitario();
                 System.out.println(">"+linha);
                 writer.println(linha);
             }
-        }catch (IOException x){
+        }catch (IOException x) {
           System.err.format("Erro de E/S: %s%n", x);
       }
     }
 
-    public void inflacionaProdutos(){
+    public void inflacionaProdutos() {
         /*
         for(int i=0;i<produtos.size();i++){
             double novoValor = produtos.get(i).getPrecoUnitario() * 1.1;
@@ -70,16 +70,16 @@ public class CadastroProdutos{
         }
         */
 
-        for(Produto p:produtos){
+        for(Produto p:produtos) {
             double novoValor = p.getPrecoUnitario() * 1.1;
             p.setPrecoUnitario(novoValor);
         }
     }
 
-    public String toString(){
+    public String toString() {
         String str = "";
-        for(int i=0;i<contProd;i++){
-            str = str + produtos.get(i)+"\n";
+        for(int i = 0; i < contProd; i++) {
+            str = str + produtos.get(i) + "\n";
         }
         return str;
     }
