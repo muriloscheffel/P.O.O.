@@ -14,7 +14,7 @@ public class DemoCriaArquivo{
         // Obtem o caminho para o diretório corrente
         String currDir = Paths.get("").toAbsolutePath().toString();
         // Monta o nome do arquivo
-        String nameComplete = currDir+"\\"+"numeros.dat";
+        String nameComplete = currDir + "/" + "numeros.dat";
         // Cria acesso ao "diretorio" da mídia (disco)
         Path path = Paths.get(nameComplete);
         // Usa o bloco try para capturar as exceções de arquivo (será visto mais adiante)

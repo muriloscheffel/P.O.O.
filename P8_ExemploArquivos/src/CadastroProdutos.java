@@ -20,7 +20,7 @@ public class CadastroProdutos{
 
     public void carregaProdutos(){
         String currDir = Paths.get("").toAbsolutePath().toString();
-        String nameComplete = currDir+"\\"+fName;
+        String nameComplete = currDir + "/" + fName;
         Path path = Paths.get(nameComplete);
         try (Scanner sc = new Scanner(Files.newBufferedReader(path, StandardCharsets.UTF_8))){
            while (sc.hasNext()){
