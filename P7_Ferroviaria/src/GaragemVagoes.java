@@ -32,7 +32,14 @@ public class GaragemVagoes {
         return null;
     }
 
-    public Vagao getVagao(int id) {
+    public Vagao getVagao(int index){
+        if (index<0 || index>= vagoes.size()){
+            return null;
+        }
+        return vagoes.get(index);
+    }
+
+    public Vagao getVagaoById(int id) {
         for(int i = 0; i < vagoes.size(); i++) {
             if(vagoes.get(i).getId() == id) {
                 return vagoes.get(i);

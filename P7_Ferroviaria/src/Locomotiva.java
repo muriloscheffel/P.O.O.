@@ -3,7 +3,10 @@ public class Locomotiva {
     private Trem trem;
 
     public Locomotiva(int id, int capacidadeCarga, int nroMaxVagoes) {
-    this.trem = null;
+        this.id = id;
+        this.capacidadeCarga = capacidadeCarga;
+        this.nroMaxVagoes = nroMaxVagoes;
+        this.trem = null;
     }
 
     public Trem getTrem() {

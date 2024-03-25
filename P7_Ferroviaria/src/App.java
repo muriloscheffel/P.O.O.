@@ -1,15 +1,15 @@
 public class App {
     public static void exibeLocomotivasNaGaragem(GaragemLocomotivas g){
         System.out.println("Locomotivas disponiveis na garagem:");
-        for(int i=0;i<g.getQtdadeLocomotivas();i++){
-            System.out.println(i+")"+g.getLocomotiva(i));
+        for(int i = 0; i < g.getQtdadeLocomotivas(); i++){
+            System.out.println((i + 1) + ")" + g.getLocomotiva(i));
         }
     }
 
     public static void exibeVagoesNaGaragem(GaragemVagoes g){
         System.out.println("Vagoes disponiveis na garagem:");
-        for(int i=0;i<g.getQtdadeVagoes();i++){
-            System.out.println(i+")"+g.getVagao(i));
+        for(int i = 0; i < g.getQtdadeVagoes(); i++){
+            System.out.println((i + 1) + ")" + g.getVagao(i));
         }
     }
 
@@ -26,6 +26,6 @@ public class App {
         System.out.println("Trem:"+trem);
         
         exibeLocomotivasNaGaragem(gl);
-        exibeVagoesNaGaragem(gv);  
+        exibeVagoesNaGaragem(gv);      
     }
 }

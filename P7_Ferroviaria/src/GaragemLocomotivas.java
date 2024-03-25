@@ -6,7 +6,7 @@ public class GaragemLocomotivas {
 
     private void carregaLocomotivas() {
         for(int i = 0; i < 5; i++) {
-            locomotivas.add(new Locomotiva(i + 1, (i + 1) * 10000, 50));
+            locomotivas.add(new Locomotiva(i + 1, (i + 1) * 10000, 100));
         }
     }
 
@@ -32,7 +32,14 @@ public class GaragemLocomotivas {
         return null;
     }
     
-    public Locomotiva getLocomotiva(int id) {
+    public Locomotiva getLocomotiva(int index){
+        if (index<0 || index>= locomotivas.size()){
+            return null;
+        }
+        return locomotivas.get(index);
+    }
+
+    public Locomotiva getLocomotivaById(int id) {
         for(int i = 0; i < locomotivas.size(); i++) {
             if(locomotivas.get(i).getId() == id) {
                 return locomotivas.get(i);

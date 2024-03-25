@@ -7,6 +7,9 @@ public class Trem {
 
     public Trem(int id, Locomotiva locomotiva) {
         this.id = id;
+        locomotivas = new ArrayList<>();
+        vagoes = new ArrayList<>();
+        engataLocomotiva(locomotiva);
     }
 
     public boolean engataLocomotiva(Locomotiva locomotiva) {
@@ -49,7 +52,7 @@ public class Trem {
 
     private boolean limiteDeVagoesAtingido(){
         int qtdade = 0;
-        for(Locomotiva l : locomotivas) {
+        for(Locomotiva l : locomotivas){
             qtdade += l.getNroMaxVagoes();
         }
         return vagoes.size() >= qtdade;
