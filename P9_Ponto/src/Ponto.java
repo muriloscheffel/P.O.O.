@@ -12,8 +12,8 @@ public class Ponto {
     }
 
     public Ponto(Ponto p) {
-        x = x.getX();
-        y = y.getY();
+        x = p.getX();
+        y = p.getY();
     }
 
     public int getX() {
@@ -25,6 +25,6 @@ public class Ponto {
     }
  
     public static double distancia(Ponto p1, Ponto p2) {
-        
+        return -1;
     }
 }
