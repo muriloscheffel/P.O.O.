@@ -2,7 +2,7 @@ import java.time.LocalDate;
 
 public class Executiva extends Passagem{
     public Executiva(LocalDate data, int numeroVoo, double custoBase, int qtdadeBagagem) {
-        super(data, numeroVoo, custoBase, qtdadeBagagem);
+        super(data, numeroVoo, custoBase, qtdadeBagagem, false);
         /*
         if(getQtdadeBagagem() > 1) {
             throw new IllegalArgumentException("Quantidade de bagagem excedeu");

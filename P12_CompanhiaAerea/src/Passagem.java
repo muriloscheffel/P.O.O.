@@ -6,12 +6,12 @@ public class Passagem {
     private double custoBase;
     private boolean prioridade;
     
-    public Passagem(LocalDate data, int numeroVoo, double custoBase, int qtdadeBagagem) {
+    public Passagem(LocalDate data, int numeroVoo, double custoBase, int qtdadeBagagem, boolean prioridade) {
         this.data = data;
         this.numeroVoo = numeroVoo;
         this.custoBase = custoBase;
         this.qtdadeBagagem = qtdadeBagagem;
-        this.prioridade = false;
+        this.prioridade = prioridade;
     }
 
     public LocalDate getData() {
@@ -30,29 +30,21 @@ public class Passagem {
         return qtdadeBagagem;
     }
 
-    public boolean isPrioridade() {
+    public boolean prioridade() {
         return prioridade;
     }
-
-    
 
     public void setPrioridade(boolean prioridade) {
         this.prioridade = prioridade;
     }
 
     public double custoFinal() {
-        return getCustoBase();
-    }
-
-    public boolean acessoPrioritario() {
-        return false;
+        return -1;
     }
 
     @Override
     public String toString() {
         return "data=" + data + ", numeroVoo=" + numeroVoo + ", qtdadeBagagem=" + qtdadeBagagem
                 + ", custoBase=" + custoBase + ", prioridade=" + prioridade + ", custoFinal=R$" + this.custoFinal();
-    }
-
-    
+    }    
 }
