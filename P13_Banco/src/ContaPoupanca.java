@@ -4,4 +4,7 @@ public class ContaPoupanca extends ContaComum {
         super(numeroConta, saldo);
     }
     
+    public void computaJuros() {
+        this.setSaldo(getSaldo() * 1.05);
+    }
 }

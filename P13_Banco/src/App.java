@@ -1,9 +1,7 @@
 public class App {
     public static void main(String[] args) throws Exception {
-        ContaLimite conta = new ContaLimite(123, 200.00, 300.00);
-
-        conta.saque(501.0);
-
-        System.out.println(conta);
+        ContaComum conta = new ContaComum(1, 1000.0);
+        ContaPoupanca contaPoupanca = new ContaPoupanca(2, 200.00);
+        ContaLimite contaLimite = new ContaLimite(3, 500.0, 300.0);
     }
 }
