@@ -7,20 +7,20 @@ public class MyArrayList<E> implements MyList<E> {
 
     public MyArrayList() {
         CAPACITY = 10;
-        data = (E[])(new Object[CAPACITY]);
         count = 0;
+        data = (E[])(new Object[CAPACITY]);
     }
 
-    class MyIterator<E> implements Iterator<E> {
+    public class MyIterator<E> implements Iterator<E>{
         private int current;
 
-        public MyIterator() {
+        public MyIterator(){
             current = 0;
         }
 
         @Override
         public boolean hasNext() {
-            return (current < count);
+            return current < count;
         }
 
         @Override
@@ -48,15 +48,42 @@ public class MyArrayList<E> implements MyList<E> {
 
     @Override
     public void add(int index, E element) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'add'");
+        if(index < 0 || index >= size()) {
+            throw new IndexOutOfBoundsException("Index inválido");
+        }
+        count++;
     }
 
     @Override
-    public E remove(E element) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'remove'");
+    public boolean remove(E element) {
+        if(count == 0) {
+            return false;
+        }
+        count--;
+
+        return true;
     }
+
+    @Override
+    public E remove(int index) {
+        if(index < 0 || index >= size()) {
+            throw new IndexOutOfBoundsException("Index inválido");
+        }
+        Object elemento = data[index];
+
+        if(index == (count - 1)) {
+            data[index] = null;
+        }
+        if(index < (count - 1)) {
+            for(int i = index; i < data.length - 1; i++) {
+                data[i] = data[i + 1];
+            }
+            data[count - 1] = null;
+        }
+        count--;
+
+        return (E)elemento;
+}
 
     @Override
     public E get(int index) {
@@ -72,8 +99,14 @@ public class MyArrayList<E> implements MyList<E> {
     }
 
     @Override
-    public Iterator<E> getIterator() {
+    public Iterator<E> iterator() {
         return new MyIterator<E>();
+    }
+
+    @Override
+    public Iterator<E> getIterator() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getIterator'");
     }
 
 }

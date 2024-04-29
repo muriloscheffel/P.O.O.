@@ -57,14 +57,45 @@ public class MyLinkedList<E> implements MyList<E> {
 
     @Override
     public void add(int index, E element) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'add'");
+        if(index < 0 || index > count) {
+            throw new IndexOutOfBoundsException("Index inválido");
+        }
+
+        Node<E> n = new Node(element);
+        Node<E> aux = head;
+
+        if(head == null) {
+            head = n;
+        } else if(index == 0) {
+            n.next = aux;
+            head = n;
+        } else if(index == count) {
+            tail.next = n;
+            tail = n;
+        } else {
+            for(int i = 0; i < index; i++) {
+                aux = aux.next;
+            }
+            n.next = aux.next;
+            aux.next = n;
+        }
+        count++;
     }
 
     @Override
-    public E remove(E element) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'remove'");
+    public boolean remove(E element) {
+        if(count == 0) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public E remove(int index) {
+        if(index < 0 || index >= count) {
+            throw new IndexOutOfBoundsException("Index inválido");
+        }
+        return null;
     }
 
     @Override
@@ -87,8 +118,15 @@ public class MyLinkedList<E> implements MyList<E> {
     }
 
     @Override
-    public Iterator<E> getIterator() {
+    public Iterator<E> iterator() {
         return new MyIterator<E>();
     }
-    
+
+    @Override
+    public Iterator<E> getIterator() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getIterator'");
+    }
+
+
 }
