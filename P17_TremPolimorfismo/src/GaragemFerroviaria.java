@@ -2,7 +2,9 @@ import java.util.ArrayList;
 
 public class GaragemFerroviaria {
     private static final int MAX_VEICULOS = 100;
+    private static final int MAX_TRENS = 10;
     private ArrayList<VeiculoFerroviario> veiculos;
+    private ArrayList<Trem> trens;
 
     private void carregaVeiculos() {
         for(int i = 0; i < 5; i++) {
@@ -13,7 +15,33 @@ public class GaragemFerroviaria {
 
     public GaragemFerroviaria() {
         veiculos = new ArrayList<>(MAX_VEICULOS);
+        trens = new ArrayList<>(MAX_TRENS);
         carregaVeiculos();
+    }
+
+    public boolean criaTrem(int id, Locomotiva locomotiva) {
+        if(trens.size() == MAX_TRENS) {
+            return false;
+        }
+        trens.add(new Trem(id, locomotiva));
+        return true;
+    }
+
+    public boolean desfazTrem(int id) {
+        for(Trem t : trens) {
+            if(t.getId() == id) {
+                while(!t.isEmpty()) 
+                    veiculos.add(t.desengataVeiculo());
+                
+                trens.remove(t);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void editarTrem(int id) {
+        
     }
 
     public boolean entraVeiculo(VeiculoFerroviario veiculo) {
@@ -47,10 +75,21 @@ public class GaragemFerroviaria {
         return veiculos.size();
     }
 
+    public int getQtdadeTrens() {
+        return trens.size();
+    }
+
     public VeiculoFerroviario getVeiculo(int index){
         if (index<0 || index>= veiculos.size()){
             return null;
         }
         return veiculos.get(index);
+    }
+
+    public Trem getTrem(int index){
+        if (index<0 || index>= veiculos.size()){
+            return null;
+        }
+        return trens.get(index);
     }
 }

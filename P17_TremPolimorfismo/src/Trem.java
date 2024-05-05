@@ -28,6 +28,15 @@ public class Trem {
         return true;
     }
 
+    public VeiculoFerroviario desengataVeiculo(){
+        if (veiculos.size() == 0){
+            return null;
+        }
+        VeiculoFerroviario aux = veiculos.remove(veiculos.size()-1);
+        aux.desvincula();
+        return aux;
+    }
+
     // Métodos auxiliares
     private boolean limiteDeVagoesAtingido(){
         int qtdade = 0;
@@ -53,6 +62,10 @@ public class Trem {
         return peso;
     }
 
+    public int getId() {
+        return id;
+    }
+
     private boolean pesoMaximoDosVagoesAtingido(){
         double peso = 0.0;
         for(VeiculoFerroviario v : veiculos){
@@ -62,6 +75,10 @@ public class Trem {
             }
         } 
         return peso >= pesoMaximoLocomotivasTracionam();
+    }
+
+    public boolean isEmpty() {
+        return veiculos.size() == 0;
     }
 
     @Override
